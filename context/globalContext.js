@@ -31,25 +31,6 @@ export function GlobalProvider({ children }) {
     cursorStyles: ['pointer', 'hovered', 'locked', 'white'],
   })
 
-  useEffect(() => {
-    dispatch({
-      type: 'TOGGLE_THEME',
-      currentTheme:
-        window.localStorage.getItem('theme') == null
-          ? 'dark'
-          : window.localStorage.getItem('theme'),
-    })
-  }, [])
-
-  useEffect(() => {
-    if (state.currentTheme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-    window.localStorage.setItem('theme', state.currentTheme)
-  }, [state.currentTheme])
-
   // onCursor function
   function onCursor(cursorType) {
     cursorType =
