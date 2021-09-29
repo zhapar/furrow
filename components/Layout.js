@@ -1,14 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from 'context/globalContext'
 import CustomCursor from 'features/CustomCursor'
 import Header from 'features/Header'
+import Navigation from 'features/Navigation'
 
 function Layout({ children }) {
   const { currentTheme } = useGlobalStateContext()
   const { dispatch } = useGlobalDispatchContext()
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   useEffect(() => {
     dispatch({
@@ -31,8 +33,9 @@ function Layout({ children }) {
 
   return (
     <>
-      <CustomCursor />
-      <Header />
+      <CustomCursor toggleMenu={toggleMenu} />
+      <Header setToggleMenu={setToggleMenu} />
+      <Navigation setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
       <main>{children}</main>
     </>
   )

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useGlobalStateContext } from 'context/globalContext'
 import cn from 'classnames'
 
-function CustomCursor() {
+function CustomCursor({ toggleMenu }) {
   const cursor = useRef(null)
 
   const { cursorType } = useGlobalStateContext()
@@ -25,7 +25,8 @@ function CustomCursor() {
       className={cn(
         'cursor',
         cursorType && 'hovered',
-        cursorType === 'pointer' && 'pointer'
+        cursorType === 'pointer' && 'pointer',
+        toggleMenu && !cursorType && 'nav-open'
       )}
       ref={cursor}></div>
   )

@@ -44,6 +44,10 @@ body {
   .text-theme {
     @apply text-black dark:text-white;
   }
+
+  .-text-theme {
+    @apply text-white dark:text-black;
+  }
   
   .border-theme {
     @apply border-black dark:border-white;
@@ -69,5 +73,8 @@ body {
   }
   &.pointer {
     @apply border-theme;
+  }
+  &.nav-open {
+    @apply -bg-theme;
   }
 }

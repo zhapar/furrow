@@ -4,7 +4,7 @@ import {
   useGlobalStateContext,
 } from 'context/globalContext'
 
-function Header() {
+function Header({ setToggleMenu }) {
   const { currentTheme } = useGlobalStateContext()
   const { dispatch, onCursor } = useGlobalDispatchContext()
 
@@ -41,12 +41,14 @@ function Header() {
               </a>
             </Link>
           </div>
-          <div>
-            <button className="origin-center border-none p-[20px] bg-none outline-none">
-              <span className="w-[36px] h-[8px] block -bg-theme m-[8px]"></span>
-              <span className="w-[36px] h-[8px] block -bg-theme m-[8px]"></span>
-            </button>
-          </div>
+          <button
+            className="origin-center border-none p-[20px] bg-none outline-none"
+            onClick={() => setToggleMenu(true)}
+            onMouseEnter={() => onCursor('hovered')}
+            onMouseLeave={onCursor}>
+            <span className="w-[36px] h-[8px] block -bg-theme m-[8px]"></span>
+            <span className="w-[36px] h-[8px] block -bg-theme m-[8px]"></span>
+          </button>
         </div>
       </div>
     </div>
