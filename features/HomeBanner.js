@@ -1,10 +1,13 @@
 import { useRef, useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import useWindowSize from 'libs/useWindowSize'
+import { useGlobalStateContext } from 'context/globalContext'
 
 function HomeBanner() {
   const [mounted, setMounted] = useState(false)
 
   const size = useWindowSize()
+  const { currentTheme } = useGlobalStateContext()
   let canvas = useRef(null)
 
   useEffect(() => {
@@ -21,7 +24,7 @@ function HomeBanner() {
 
       renderingCtx.globalCompositeOperation = 'source-over'
       // to do
-      renderingCtx.fillStyle = '#fff'
+      renderingCtx.fillStyle = currentTheme === 'dark' ? '#000' : '#fff'
       renderingCtx.fillRect(0, 0, size.width, size.height)
 
       renderingElement.addEventListener('mouseover', (event) => {
@@ -60,11 +63,32 @@ function HomeBanner() {
         }
       })
     }
-  }, [mounted])
+  }, [mounted, currentTheme])
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  const container = {
+    initial: { y: 800 },
+    animate: {
+      y: 0,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const item = {
+    initial: { y: 800 },
+    animate: {
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: [0.6, 0.05, -0.01, 0.9],
+      },
+    },
+  }
 
   return (
     <div className="bg-theme h-screen w-full relative mb-[296px]">
@@ -83,14 +107,22 @@ function HomeBanner() {
         width={mounted ? size.width : 300}
         className="absolute top-0 left-0 h-full block"
       />
-      <h1 className="absolute bottom-[-120px] left-[-18px] text-theme pointer-events-none">
-        <span className="block text-[23rem] font-black leading-[0.76]">
+      <motion.h1
+        variants={container}
+        initial="initial"
+        animate="animate"
+        className="absolute bottom-[-120px] left-[-18px] text-theme pointer-events-none">
+        <motion.span
+          variants={item}
+          className="block text-[23rem] font-black leading-[0.76]">
           DIG
-        </span>
-        <span className="block text-[23rem] font-black leading-[0.76]">
+        </motion.span>
+        <motion.span
+          variants={item}
+          className="block text-[23rem] font-black leading-[0.76]">
           DEEP
-        </span>
-      </h1>
+        </motion.span>
+      </motion.h1>
     </div>
   )
 }

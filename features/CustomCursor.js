@@ -1,7 +1,11 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { useGlobalStateContext } from 'context/globalContext'
+import cn from 'classnames'
 
 function CustomCursor() {
   const cursor = useRef(null)
+
+  const { cursorType } = useGlobalStateContext()
 
   function onMouseMove({ clientX, clientY }) {
     cursor.current.style.left = `${clientX}px`
@@ -18,7 +22,11 @@ function CustomCursor() {
 
   return (
     <div
-      className="fixed top-[300px] left-[300px] w-[32px] h-[32px] bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 transition duration-100 ease-out pointer-events-none z-[999]"
+      className={cn(
+        'cursor',
+        cursorType && 'hovered',
+        cursorType === 'pointer' && 'pointer'
+      )}
       ref={cursor}></div>
   )
 }

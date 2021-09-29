@@ -1,6 +1,8 @@
+@tailwind components;
+
 * {
   text-decoration: none;
-  // cursor: none;
+  cursor: none;
 }
 
 button {
@@ -11,6 +13,10 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
+}
+
+:root {
+  --color-primary: #ea291e;
 }
 
 body {
@@ -26,15 +32,42 @@ body {
   @apply flex-grow mx-auto px-8 relative w-auto h-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl;
 }
 
-
-.bg-theme {
-  @apply bg-white dark:bg-black;
+@layer components {
+  .bg-theme {
+    @apply bg-white dark:bg-black;
+  }
+  
+  .-bg-theme {
+    @apply bg-black dark:bg-white;
+  }
+  
+  .text-theme {
+    @apply text-black dark:text-white;
+  }
+  
+  .border-theme {
+    @apply border-black dark:border-white;
+  }
 }
 
-.-bg-theme {
-  @apply bg-black dark:bg-white;
-}
+.cursor {
+  top: 300px;
+  left: 300px;
+  width: 32px;
+  height: 32px;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  @apply fixed bg-primary rounded-full transition duration-100 ease-out pointer-events-none;
 
-.text-theme {
-  @apply text-black dark:text-white;
+  &.hovered {
+    width: 56px;
+    height: 56px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--color-primary);
+    @apply bg-transparent;
+  }
+  &.pointer {
+    @apply border-theme;
+  }
 }
