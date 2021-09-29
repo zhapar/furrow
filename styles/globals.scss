@@ -1,6 +1,6 @@
 * {
   text-decoration: none;
-  cursor: none;
+  // cursor: none;
 }
 
 button {
@@ -23,5 +23,18 @@ body {
 }
 
 .container {
-  @apply flex-grow mx-auto px-8 relative w-auto h-full lg:max-w-[960px] xl:max-w-[1152px] 2xl:max-w-[1244px];
+  @apply flex-grow mx-auto px-8 relative w-auto h-full lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl;
+}
+
+
+.bg-theme {
+  @apply bg-white dark:bg-black;
+}
+
+.-bg-theme {
+  @apply bg-black dark:bg-white;
+}
+
+.text-theme {
+  @apply text-black dark:text-white;
 }

@@ -1,11 +1,12 @@
 import CustomCursor from 'features/CustomCursor'
 import Header from 'features/Header'
 
-function Layout() {
+function Layout({ children }) {
   return (
     <>
       <CustomCursor />
       <Header />
+      <main>{children}</main>
     </>
   )
 }
