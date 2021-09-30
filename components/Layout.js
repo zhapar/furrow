@@ -6,6 +6,7 @@ import {
 import CustomCursor from 'features/CustomCursor'
 import Header from 'features/Header'
 import Navigation from 'features/Navigation'
+import Footer from 'features/Footer'
 
 function Layout({ children }) {
   const { currentTheme } = useGlobalStateContext()
@@ -37,6 +38,7 @@ function Layout({ children }) {
       <Header setToggleMenu={setToggleMenu} />
       <Navigation setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
       <main>{children}</main>
+      <Footer />
     </>
   )
 }

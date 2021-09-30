@@ -1,6 +1,7 @@
 import { useGlobalDispatchContext } from 'context/globalContext'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { Facebook, Instagram, Vimeo } from 'public/assets/svg/social-icons'
 import { useState } from 'react'
 
 const navRoutes = [
@@ -117,6 +118,36 @@ function Navigation({ toggleMenu, setToggleMenu }) {
                   </motion.li>
                 ))}
               </ul>
+            </div>
+            <div className="absolute bottom-0 left-0 w-full py-[56px]">
+              <div className="flex justify-between">
+                <div className="text-primary text-[22px] font-semibold leading-[8px] flex-[1]">
+                  <p className="-text-theme">info@furrow.studio</p>
+                </div>
+                <div className="text-primary text-[22px] font-semibold leading-[8px] flex-[2]">
+                  <p className="-text-theme">902.315.1279</p>
+                </div>
+                <div className="flex relative">
+                  <a
+                    className="relative block w-[24px] h-[24px] p-[8px] box-content"
+                    href="#"
+                    target="_blank">
+                    <Instagram className="w-full h-full -text-theme" />
+                  </a>
+                  <a
+                    className="relative block w-[24px] h-[24px] p-[8px] box-content"
+                    href="#"
+                    target="_blank">
+                    <Facebook className="w-full h-full -text-theme" />
+                  </a>
+                  <a
+                    className="relative block w-[24px] h-[24px] p-[8px] box-content"
+                    href="#"
+                    target="_blank">
+                    <Vimeo className="w-full h-full -text-theme" />
+                  </a>
+                </div>
+              </div>
             </div>
             <div className="absolute top-0 bottom-0 left-1/4 z-[-1] h-full w-full bg-black">
               <motion.div
