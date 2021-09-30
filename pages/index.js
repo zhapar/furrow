@@ -1,4 +1,5 @@
 import Layout from 'components/Layout'
+import HomeAbout from 'features/HomeAbout'
 import HomeBanner from 'features/HomeBanner'
 import HomeContent from 'features/HomeContent'
 import HomeFeatured from 'features/HomeFeatured'
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeBanner />
       <HomeContent />
       <HomeFeatured />
+      <HomeAbout />
     </Layout>
   )
 }
