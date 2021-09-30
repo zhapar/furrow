@@ -1,9 +1,22 @@
+import { useGlobalDispatchContext } from 'context/globalContext'
 import { motion, useAnimation } from 'framer-motion'
+import useElementPosition from 'libs/useElementPosition'
 import { Facebook, Instagram, Vimeo } from 'public/assets/svg/social-icons'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-function Footer() {
+function Footer({ setFixedCursorPosition }) {
+  const instagramRef = useRef(null)
+  const instagramPosition = useElementPosition(instagramRef)
+
+  const facebookRef = useRef(null)
+  const facebookPosition = useElementPosition(facebookRef)
+
+  const vimeoRef = useRef(null)
+  const vimeoPosition = useElementPosition(vimeoRef)
+
+  const { onCursor } = useGlobalDispatchContext()
+
   const animation = useAnimation()
   const [footerRef, inView] = useInView({
     triggerOnce: true,
@@ -14,6 +27,11 @@ function Footer() {
       animation.start('visible')
     }
   }, [animation, inView])
+
+  const menuHover = (x) => {
+    onCursor('lockedX')
+    setFixedCursorPosition({ x })
+  }
 
   return (
     <motion.div
@@ -43,18 +61,27 @@ function Footer() {
             <a
               className="relative block w-[24px] h-[24px] p-[8px] box-content"
               href="#"
+              ref={instagramRef}
+              onMouseEnter={() => menuHover(instagramPosition.x)}
+              onMouseLeave={onCursor}
               target="_blank">
               <Instagram className="w-full h-full text-primary" />
             </a>
             <a
               className="relative block w-[24px] h-[24px] p-[8px] box-content"
               href="#"
+              ref={facebookRef}
+              onMouseEnter={() => menuHover(facebookPosition.x)}
+              onMouseLeave={onCursor}
               target="_blank">
               <Facebook className="w-full h-full text-primary" />
             </a>
             <a
               className="relative block w-[24px] h-[24px] p-[8px] box-content"
               href="#"
+              ref={vimeoRef}
+              onMouseEnter={() => menuHover(vimeoPosition.x)}
+              onMouseLeave={onCursor}
               target="_blank">
               <Vimeo className="w-full h-full text-primary" />
             </a>

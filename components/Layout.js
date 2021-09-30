@@ -12,6 +12,10 @@ function Layout({ children }) {
   const { currentTheme } = useGlobalStateContext()
   const { dispatch } = useGlobalDispatchContext()
   const [toggleMenu, setToggleMenu] = useState(false)
+  const [fixedCursorPosition, setFixedCursorPosition] = useState({
+    x: 0,
+    y: 0,
+  })
 
   useEffect(() => {
     dispatch({
@@ -34,11 +38,17 @@ function Layout({ children }) {
 
   return (
     <>
-      <CustomCursor toggleMenu={toggleMenu} />
-      <Header setToggleMenu={setToggleMenu} />
+      <CustomCursor
+        toggleMenu={toggleMenu}
+        fixedCursorPosition={fixedCursorPosition}
+      />
+      <Header
+        setToggleMenu={setToggleMenu}
+        setFixedCursorPosition={setFixedCursorPosition}
+      />
       <Navigation setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
       <main>{children}</main>
-      <Footer />
+      <Footer setFixedCursorPosition={setFixedCursorPosition} />
     </>
   )
 }

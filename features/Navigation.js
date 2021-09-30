@@ -121,10 +121,10 @@ function Navigation({ toggleMenu, setToggleMenu }) {
             </div>
             <div className="absolute bottom-0 left-0 w-full py-[56px]">
               <div className="flex justify-between">
-                <div className="text-primary text-[22px] font-semibold leading-[8px] flex-[1]">
+                <div className="text-primary text-[22px] font-semibold flex-[1]">
                   <p className="-text-theme">info@furrow.studio</p>
                 </div>
-                <div className="text-primary text-[22px] font-semibold leading-[8px] flex-[2]">
+                <div className="text-primary text-[22px] font-semibold flex-[2]">
                   <p className="-text-theme">902.315.1279</p>
                 </div>
                 <div className="flex relative">

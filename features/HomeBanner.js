@@ -1,13 +1,17 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import useWindowSize from 'libs/useWindowSize'
-import { useGlobalStateContext } from 'context/globalContext'
+import {
+  useGlobalDispatchContext,
+  useGlobalStateContext,
+} from 'context/globalContext'
 
 function HomeBanner() {
   const [mounted, setMounted] = useState(false)
 
   const size = useWindowSize()
   const { currentTheme } = useGlobalStateContext()
+  const { onCursor } = useGlobalDispatchContext()
   let canvas = useRef(null)
 
   useEffect(() => {
@@ -105,6 +109,8 @@ function HomeBanner() {
         ref={canvas}
         height={mounted ? size.height : 300}
         width={mounted ? size.width : 300}
+        onMouseEnter={() => onCursor('hovered')}
+        onMouseLeave={onCursor}
         className="absolute top-0 left-0 h-full block"
       />
       <motion.h1

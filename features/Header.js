@@ -3,10 +3,14 @@ import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from 'context/globalContext'
+import useElementPosition from 'libs/useElementPosition'
+import { useRef } from 'react'
 
-function Header({ setToggleMenu }) {
+function Header({ setToggleMenu, setFixedCursorPosition }) {
   const { currentTheme } = useGlobalStateContext()
   const { dispatch, onCursor } = useGlobalDispatchContext()
+  const hamburger = useRef(null)
+  const position = useElementPosition(hamburger)
 
   function toggleTheme() {
     if (currentTheme === 'dark') {
@@ -14,6 +18,11 @@ function Header({ setToggleMenu }) {
     } else if (currentTheme === 'light') {
       dispatch({ type: 'TOGGLE_THEME', currentTheme: 'dark' })
     }
+  }
+
+  function menuHover() {
+    onCursor('locked')
+    setFixedCursorPosition({ x: position.x, y: position.y + 20 })
   }
 
   return (
@@ -42,9 +51,10 @@ function Header({ setToggleMenu }) {
             </Link>
           </div>
           <button
+            ref={hamburger}
             className="origin-center border-none p-[20px] bg-none outline-none"
             onClick={() => setToggleMenu(true)}
-            onMouseEnter={() => onCursor('hovered')}
+            onMouseEnter={menuHover}
             onMouseLeave={onCursor}>
             <span className="w-[36px] h-[8px] block -bg-theme m-[8px]"></span>
             <span className="w-[36px] h-[8px] block -bg-theme m-[8px]"></span>

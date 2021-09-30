@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useGlobalStateContext } from 'context/globalContext'
 import cn from 'classnames'
 
-function CustomCursor({ toggleMenu }) {
+function CustomCursor({ toggleMenu, fixedCursorPosition }) {
   const cursor = useRef(null)
 
   const { cursorType } = useGlobalStateContext()
@@ -26,8 +26,14 @@ function CustomCursor({ toggleMenu }) {
         'cursor',
         cursorType && 'hovered',
         cursorType === 'pointer' && 'pointer',
+        cursorType === 'locked' && 'locked',
+        cursorType === 'lockedX' && 'lockedX',
         toggleMenu && !cursorType && 'nav-open'
       )}
+      style={{
+        '--top-position': `${fixedCursorPosition.y}px`,
+        '--left-position': `${fixedCursorPosition.x}px`,
+      }}
       ref={cursor}></div>
   )
 }

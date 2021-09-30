@@ -74,7 +74,23 @@ body {
   &.pointer {
     @apply border-theme;
   }
+  &.locked {
+    background: transparent !important;
+    width: 56px;
+    height: 56px;
+    top: var(--top-position) !important;
+    left: var(--left-position) !important;
+    @apply border-theme;
+  }
+  &.lockedX {
+    background: transparent !important;
+    width: 56px;
+    height: 56px;
+    left: var(--left-position) !important;
+    @apply border-theme;
+  }
   &.nav-open {
     @apply -bg-theme;
   }
+
 }

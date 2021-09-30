@@ -28,7 +28,7 @@ export function GlobalProvider({ children }) {
   const [state, dispatch] = useReducer(globalReducer, {
     currentTheme: 'dark',
     cursorType: false,
-    cursorStyles: ['pointer', 'hovered', 'locked', 'white'],
+    cursorStyles: ['pointer', 'hovered', 'locked', 'lockedX', 'white'],
   })
 
   // onCursor function
