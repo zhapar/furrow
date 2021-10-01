@@ -95,7 +95,7 @@ function HomeBanner() {
   }
 
   return (
-    <div className="bg-theme h-screen w-full relative mb-[296px]">
+    <div className="bg-theme h-screen w-full relative mb-[100px] sm:mb-[296px]">
       <div className="h-full w-full">
         <video
           src="/assets/video/video.mp4"
@@ -111,21 +111,21 @@ function HomeBanner() {
         width={mounted ? size.width : 300}
         onMouseEnter={() => onCursor('hovered')}
         onMouseLeave={onCursor}
-        className="absolute top-0 left-0 h-full block"
+        className="absolute top-0 left-0 h-full hidden sm:block"
       />
       <motion.h1
         variants={container}
         initial="initial"
         animate="animate"
-        className="absolute bottom-[-120px] left-[-18px] text-theme pointer-events-none">
+        className="absolute bottom-0 md:bottom-[-120px] left-0 md:left-[-18px] text-theme pointer-events-none">
         <motion.span
           variants={item}
-          className="block text-[23rem] font-black leading-[0.76]">
+          className="block text-[8rem] md:text-[23rem] font-black leading-[0.76]">
           DIG
         </motion.span>
         <motion.span
           variants={item}
-          className="block text-[23rem] font-black leading-[0.76]">
+          className="block text-[8rem] md:text-[23rem] font-black leading-[0.76]">
           DEEP
         </motion.span>
       </motion.h1>

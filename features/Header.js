@@ -26,7 +26,7 @@ function Header({ setToggleMenu, setFixedCursorPosition }) {
   }
 
   return (
-    <div className="h-0 w-full absolute top-[72px] right-0 left-0 z-[99]">
+    <div className="h-0 w-full absolute top-5 sm:top-[72px] right-0 left-0 z-[99]">
       <div className="container">
         <div className="flex justify-between h-0">
           <div
@@ -52,7 +52,7 @@ function Header({ setToggleMenu, setFixedCursorPosition }) {
           </div>
           <button
             ref={hamburger}
-            className="origin-center border-none p-[20px] bg-none outline-none"
+            className="origin-center border-none py-5 sm:p-[20px] bg-none outline-none"
             onClick={() => setToggleMenu(true)}
             onMouseEnter={menuHover}
             onMouseLeave={onCursor}>

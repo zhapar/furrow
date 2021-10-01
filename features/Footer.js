@@ -35,7 +35,7 @@ function Footer({ setFixedCursorPosition }) {
 
   return (
     <motion.div
-      className="h-[300px] mt-[296px]"
+      className="h-[300px] mt-[100px] sm:mt-[296px]"
       ref={footerRef}
       animate={animation}
       initial="hidden"
@@ -48,7 +48,7 @@ function Footer({ setFixedCursorPosition }) {
         hidden: { opacity: 0, y: 72 },
       }}>
       <div className="container">
-        <div className="flex relative justify-between">
+        <div className="flex flex-col sm:flex-row relative justify-between">
           <div className="text-primary text-[22px] font-semibold leading-[8px] flex-[1]">
             <p className="my-[22px]">902.315.1279</p>
             <p className="my-[22px]">info@furrow.studio</p>
@@ -57,7 +57,7 @@ function Footer({ setFixedCursorPosition }) {
             <p className="my-[22px]">15 Camburhill Ct Unit C</p>
             <p className="my-[22px]">Charlottetown, PE C1E 0E2</p>
           </div>
-          <div className="flex relative">
+          <div className="flex relative mt-4 sm:mt-0">
             <a
               className="relative block w-[24px] h-[24px] p-[8px] box-content"
               href="#"

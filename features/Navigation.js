@@ -55,14 +55,16 @@ function Navigation({ toggleMenu, setToggleMenu }) {
           transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
           className="fixed top-0 left-0 w-full h-full block bg-primary text-black z-[100] overflow-hidden">
           <div className="container">
-            <div className="top-[72px] relative">
+            <div className="top-5 sm:top-[72px] relative">
               <div className="flex justify-between h-0">
-                <h2 className="-text-theme text-2xl font-bold">Projects</h2>
+                <h2 className="-text-theme text-2xl font-bold mt-5">
+                  Projects
+                </h2>
                 <button
                   onMouseEnter={() => onCursor('pointer')}
                   onMouseLeave={onCursor}
                   onClick={() => setToggleMenu(false)}
-                  className="origin-center border-none p-[20px] bg-none outline-none">
+                  className="origin-center border-none py-5 sm:p-[20px] bg-none outline-none">
                   <span className="w-[36px] h-[8px] block bg-theme m-[8px]"></span>
                   <span className="w-[36px] h-[8px] block bg-theme m-[8px]"></span>
                 </button>
@@ -119,8 +121,8 @@ function Navigation({ toggleMenu, setToggleMenu }) {
                 ))}
               </ul>
             </div>
-            <div className="absolute bottom-0 left-0 w-full py-[56px]">
-              <div className="flex justify-between">
+            <div className="absolute bottom-0 left-0 w-full py-5 sm:py-[56px]">
+              <div className="flex flex-col sm:flex-row justify-between px-9">
                 <div className="text-primary text-[22px] font-semibold flex-[1]">
                   <p className="-text-theme">info@furrow.studio</p>
                 </div>

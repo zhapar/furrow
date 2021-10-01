@@ -11,7 +11,7 @@ function HomeFeatured() {
   const animation = useAnimation()
   const [featured, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-300px',
+    rootMargin: '-100px',
   })
 
   useEffect(() => {
@@ -36,13 +36,13 @@ function HomeFeatured() {
       }}>
       <div className="container">
         <Link href="#">
-          <a className="mb-[200px] relative block">
+          <a className="mb-[50px] sm:mb-[200px] relative block">
             <motion.div
               onHoverStart={() => setHovered(true)}
               onHoverEnd={() => setHovered(false)}
               onMouseEnter={() => onCursor('hovered')}
               onMouseLeave={onCursor}
-              className="h-[480px] w-full py-[56px] px-[124px] box-border text-theme">
+              className="h-[480px] w-full py-[56px] px-4 sm:px-[124px] box-border text-theme">
               <div className="flex justify-between">
                 <h3 className="text-[1.4rem]">Featured Project</h3>
                 <motion.div
@@ -53,7 +53,7 @@ function HomeFeatured() {
                   <h4>2019</h4>
                 </motion.div>
               </div>
-              <h2 className="absolute bottom-[-128px] text-[7rem] font-black leading-[90px] m-0">
+              <h2 className="absolute bottom-0 sm:bottom-[-128px] left-0 text-[4rem] sm:text-[7rem] font-black leading-snug sm:leading-[90px] m-0">
                 NOT <br /> HUMBLE
                 <span className="w-[120px] h-[80px] block relative overflow-hidden">
                   <motion.svg
@@ -82,7 +82,7 @@ function HomeFeatured() {
             </div>
           </a>
         </Link>
-        <div className="mt-[200px]">
+        <div className="sm:mt-[200px]">
           <div className="flex justify-end">
             <button className="bg-primary text-white relative p-[20px] block text-left text-[1.4rem] leading-none font-semibold border-none before:absolute before:top-1/2 before:right-[20px] before:w-[35px] before:h-[7px] before:block before:bg-white before:transform before:-translate-y-1/2 before:mt-[-8px] after:absolute after:top-1/2 after:right-[20px] after:w-[35px] after:h-[7px] after:block after:bg-white after:transform after:-translate-y-1/2 after:mt-[8px]">
               <span className="mr-[108px] block">All Projects</span>

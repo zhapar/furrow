@@ -66,7 +66,7 @@ function HomeAbout() {
   const [aboutRef, inView] = useInView({
     triggerOnce: true,
     // Giving our scrollwheel additional 300px before executing animation
-    rootMargin: '-300px',
+    rootMargin: '-100px',
   })
 
   useEffect(() => {
@@ -89,14 +89,14 @@ function HomeAbout() {
         hidden: { opacity: 0, y: 72 },
       }}>
       <div className="container">
-        <div className="flex items-start">
+        <div className="flex flex-col sm:flex-row items-start">
           <div className="w-full">
-            <h2 className="w-[60%] text-[2.3rem] font-normal ml-[124px] text-theme">
+            <h2 className="w-full sm:w-[60%] text-[1.5rem] sm:text-[2.3rem] font-normal ml-4 sm:ml-[124px] text-theme">
               Furrow is an integrated, full-service creative studio offering
               video production, creative development, and post-production
               services.
             </h2>
-            <p className="max-w-[440px] text-[1rem] leading-[1.6rem] ml-[124px] text-theme">
+            <p className="max-w-[440px] text-[1rem] leading-[1.6rem] ml-4 mt-4 sm:mt-0 sm:ml-[124px] text-theme">
               Everybody’s got a story. And we don’t stop until we’ve uncovered
               what makes yours worth telling. Whether it’s working directly with
               you, an agency partner, or putting the finishing touches on

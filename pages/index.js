@@ -3,7 +3,6 @@ import HomeAbout from 'features/HomeAbout'
 import HomeBanner from 'features/HomeBanner'
 import HomeContent from 'features/HomeContent'
 import HomeFeatured from 'features/HomeFeatured'
-import Head from 'next/head'
 
 export default function Home() {
   return (

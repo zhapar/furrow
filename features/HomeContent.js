@@ -6,7 +6,7 @@ function HomeContent() {
   const animation = useAnimation()
   const [contentRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-300px',
+    rootMargin: '-100px',
   })
 
   useEffect(() => {
@@ -31,9 +31,9 @@ function HomeContent() {
           y: 72,
         },
       }}
-      className="mb-[200px]">
+      className="mb-[100px] sm:mb-[200px]">
       <div className="container">
-        <motion.h2 className="w-[53%] text-[2.3rem] font-normal ml-[124px] text-theme">
+        <motion.h2 className="w-full sm:w-[53%] sm:text-[2.3rem] font-normal sm:ml-[124px] text-theme">
           Great stories don’t just happen— <br /> they need to be uncovered. And
           we dig deep to discover the great stories that lie just below the
           surface. Dirt under our fingernails and all.
